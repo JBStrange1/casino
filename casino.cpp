@@ -53,7 +53,7 @@ int rungame(int credits){
 void createMachine(int rows, int cols){
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; i++){
-            sym
+            
         }
     }
 }

@@ -25,10 +25,10 @@ public:
 void symbol::setRight(symbol* right){
     this->right = right;
 }   
-void symbol::setDown(symbol* up){
+void symbol::setUp(symbol* up){
     this->up = up;
 }
-void symbol::setUp(symbol* down){
+void symbol::setDown(symbol* down){
     this->down = down;
 }
 string symbol::getIcon(){
