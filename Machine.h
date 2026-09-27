@@ -11,11 +11,11 @@ class Machine
 {
 private:
     vector<vector<Symbol*>> board;
+    void print();
 public:
     Machine(vector<int> dim);
     Machine();
     ~Machine();
-    void print();
     void spin();
 };
 

@@ -10,24 +10,18 @@ using namespace std;
 
 int rungame(int credits);
 void createMachine();
-void test();
 
 int main(){
     int credits = 100;
+    vector<int> dim = {4,5};
+    Machine* thisMachine = new Machine(dim);
     while(true){
-        credits = rungame(credits);
+        thisMachine->spin();
         cin.get();
     }
-    test();
 }
 int rungame(int credits){
-    
-}
 
-void test(){
-    vector<int> dim = {4,5};
-
-    Machine* thisMachine = new Machine(dim);
-    thisMachine->print();
+    return credits;
 }
 
