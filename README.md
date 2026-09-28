@@ -64,3 +64,4 @@ The long-term goal is to keep the C++ code responsible for the game engine while
 ## About
 
 This project is primarily an experiment in C++ classes, pointers, recursion, graph traversal, dynamic board sizes, and game logic.
+No AI was used in the making of this project other than within this README.md
