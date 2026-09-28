@@ -26,6 +26,7 @@ public:
     void deposit(int depo);
     int cashout();
     int spin(int wager);
+    int getBalance();
 };
 
 #endif 

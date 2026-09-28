@@ -44,7 +44,10 @@ int Machine::spin(int wager){
     }
     this->connectSymbols();
     int winMulti = this->scoreLines();
-    if(winMulti >= 0) result = wager * winMulti;
+    if(winMulti >= 0) {
+        result = wager * winMulti;
+        this->balance += result;
+    }
     else return 0;
     this->print();
     return result;
@@ -121,7 +124,9 @@ int Machine::cashout(){
     this->balance = 0;
     return cash;
 }
-
+int Machine::getBalance(){
+    return this->balance;
+}
 void Machine::print(){
     for(int i = 0; i < this->board.size(); i++){
         for(int j = 0; j < this->board.at(i).size(); j++){

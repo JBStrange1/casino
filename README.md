@@ -53,7 +53,6 @@ make clean
 
 ## Future Plans
 
-- Complete and refine payout rules
 - Add more configurable winning patterns
 - Improve wager, wallet, and payout handling
 - Add tests for board generation and scoring

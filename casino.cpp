@@ -15,7 +15,7 @@ int main(){
     int balance = 100;
     Wallet* myWallet = new Wallet(balance);
 
-    vector<int> dim = {4,5};
+    vector<int> dim = {10,20};
     int gameResult = rungame(dim);
     myWallet->deposit(gameResult);
 }
@@ -45,8 +45,10 @@ int rungame(vector<int> dimensions){
         if (result > (wager * 4)){
             cout << "BIG WIN!!!!" << endl;
         }else if(result > (wager * 2)) cout << "Alright win!" << endl;
-        cout << result << endl; 
-        cin.get();
+        cout << "Win: " << result << " Balance: " << thisMachine->getBalance() << endl; 
+        cout << "Would you like to spin again? <press enter> or type c to change bet" << endl;
+        char input = cin.get();
+        if(input == 'c') break;
     }
     return thisMachine->cashout();
 }
