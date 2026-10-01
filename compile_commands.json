@@ -1,0 +1,70 @@
+[
+  {
+    "file": "casino.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-std=c++17",
+      "-IGame",
+      "-IPlayer",
+      "-c",
+      "casino.cpp",
+      "-o",
+      "build/casino.o"
+    ],
+    "directory": "/home/jstrange/Desktop/Personal/casino",
+    "output": "build/casino.o"
+  },
+  {
+    "file": "Game/Machine.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-std=c++17",
+      "-IGame",
+      "-IPlayer",
+      "-c",
+      "Game/Machine.cpp",
+      "-o",
+      "build/Game/Machine.o"
+    ],
+    "directory": "/home/jstrange/Desktop/Personal/casino",
+    "output": "build/Game/Machine.o"
+  },
+  {
+    "file": "Game/Symbol.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-std=c++17",
+      "-IGame",
+      "-IPlayer",
+      "-c",
+      "Game/Symbol.cpp",
+      "-o",
+      "build/Game/Symbol.o"
+    ],
+    "directory": "/home/jstrange/Desktop/Personal/casino",
+    "output": "build/Game/Symbol.o"
+  },
+  {
+    "file": "Player/Wallet.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-std=c++17",
+      "-IGame",
+      "-IPlayer",
+      "-c",
+      "Player/Wallet.cpp",
+      "-o",
+      "build/Player/Wallet.o"
+    ],
+    "directory": "/home/jstrange/Desktop/Personal/casino",
+    "output": "build/Player/Wallet.o"
+  }
+]

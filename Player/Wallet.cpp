@@ -7,6 +7,7 @@ Wallet::Wallet(int initDepo){
     this->balance = initDepo;
 }
 Wallet::~Wallet(){
+
 }
 int Wallet::getBalance(){
     return this->balance;
