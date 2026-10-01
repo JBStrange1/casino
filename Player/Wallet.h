@@ -8,6 +8,7 @@ private:
     int balance;
 public:
     void deposit(int deposit);
+    void withdraw(int amount);
     Wallet();
     Wallet(int initDepo);
     ~Wallet();

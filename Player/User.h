@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "Wallet.h"
+#include <sstream>
 
 using namespace std;
 
@@ -19,6 +21,7 @@ public:
     ~User();
     int login(string userName, string password);
     void logout();
+    Wallet*getWallet();
 };
 
 #endif 

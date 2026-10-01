@@ -18,3 +18,9 @@ void Wallet::deposit(int deposit){
     }
     this->balance += deposit;
 }
+void Wallet::withdraw(int amount){
+    if(this->balance < amount){
+        return;
+    }
+    this->balance -= amount;
+}
