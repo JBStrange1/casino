@@ -6,15 +6,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(casino
     casino.cpp
-    Player/User.cpp
-    Player/Wallet.cpp
-    Game/Machine.cpp
-    Game/Symbol.cpp
+    Backend/Player/User.cpp
+    Backend/Player/Wallet.cpp
+    Backend/Game/Machine.cpp
+    Backend/Game/Symbol.cpp
 )
 
 target_include_directories(casino PRIVATE
-    Player
-    Game
+    Backend/Player
+    Backend/Game
 )
 find_package(nlohmann_json 3.12.0 REQUIRED)
 

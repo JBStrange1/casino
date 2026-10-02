@@ -56,14 +56,14 @@ int rungame(vector<int> dimensions, Wallet* plrWallet){
     }
 
     while(true){
+        char input = cin.get();
+        if(input == 'c') break;
         int result = thisMachine->spin(wager);
         if (result > (wager * 4)){
             cout << "BIG WIN!!!!" << endl;
         }else if(result > (wager * 2)) cout << "Alright win!" << endl;
         cout << "Win: " << result << " Balance: " << thisMachine->getBalance() << endl; 
         cout << "Would you like to spin again? <press enter> or type c to change bet" << endl;
-        char input = cin.get();
-        if(input == 'c') break;
     }
     return thisMachine->cashout();
 }
