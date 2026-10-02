@@ -15,6 +15,7 @@ add_executable(casino
     Frontend/Views/Login/Login.cpp
     Frontend/Views/Logout/Logout.cpp
     Frontend/Views/Slot/Slot.cpp
+    Frontend/app.cpp
 )
 
 target_include_directories(casino PRIVATE
@@ -25,8 +26,10 @@ target_include_directories(casino PRIVATE
     Frontend/Views/Login/
     Frontend/Components/Toolbar/
     Frontend/Components/Footer/
+    Frontend/
 )
 find_package(nlohmann_json 3.12.0 REQUIRED)
 find_package(ftxui 7.0.3 REQUIRED)
 
 target_link_libraries(casino PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(casino PRIVATE ftxui::ftxui)

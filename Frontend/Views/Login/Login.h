@@ -1,8 +1,7 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 
-#include <ftxui.hpp>
-#include <string>
+#include <ftxui/ftxui.hpp>
 
 using namespace ftxui;
 
