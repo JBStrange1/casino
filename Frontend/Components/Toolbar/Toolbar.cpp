@@ -2,7 +2,7 @@
 
 Toolbar::Toolbar(){
     auto option = MenuOption::HorizontalAnimated();
-    option.underline.SetAnimation(std::chrono::milliseconds(1500), animation::easing::ElasticOut);
+    option.underline.SetAnimation(std::chrono::milliseconds(1000), animation::easing::ElasticOut);
     option.entries_option.transform = [](EntryState state) {
         Element e = text(state.label) | hcenter | flex;
         if (state.active && state.focused) {
@@ -17,6 +17,7 @@ Toolbar::Toolbar(){
     option.underline.color_active = Color::Red;
     this->myComponent = Menu(this->entries, &this->selected ,option); 
 }
+
 Component Toolbar::getComponent(){
     return this->myComponent;
 }
