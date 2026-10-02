@@ -20,6 +20,7 @@ int main(){
     cin >> userName;
     cout << "Enter Password: ";
     cin >> password; 
+
     int usr = thisUser->login(userName, password);
     if(usr == -1){
         cerr << "Could not login" << endl;
@@ -27,9 +28,11 @@ int main(){
     }
     vector<int> dim = {3,4};
     rungame(dim, thisUser->getWallet());
+    thisUser->logout();
 }
 
 int rungame(vector<int> dimensions, Wallet* plrWallet){
+    cout << plrWallet->getBalance();
     Machine* thisMachine = new Machine(dimensions);
     int deposit = 0;
     cout << "How many credits would you like to deposit? :";

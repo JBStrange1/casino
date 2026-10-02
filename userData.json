@@ -1,0 +1,14 @@
+{
+    "Users": [
+        {
+            "balance": 199900,
+            "password": "password",
+            "userName": "jstrange"
+        },
+        {
+            "balance": 20,
+            "password": "password",
+            "userName": "jstrange2"
+        }
+    ]
+}

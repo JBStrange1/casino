@@ -1,0 +1,33 @@
+Package: vcpkg-cmake-config
+Version: 2026-07-21
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 7b85c37402d3102c6ecc086f0512bf7e1da18513293ab77d8e1be2a0feda1027
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2025-08-07
+Architecture: x64-linux
+Multi-Arch: same
+Abi: a0b7435f4f0a5fadb5ea75f9366fc2651ddc712a0426c10baea0d36ae6722a13
+Status: install ok installed
+
+Package: ftxui
+Version: 7.0.3
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 97f8980775d0304d75192be41b4abb07bc0b4ca4aead3649462b732b5b084740
+Description: C++ Functional Terminal User Interface
+Status: install ok installed
+
+Package: nlohmann-json
+Version: 3.12.0
+Port-Version: 2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 2b3c2aaed07623460904eccdcda5210eee0eb425dd3bd465fe60859503992637
+Description: JSON for Modern C++
+Status: install ok installed
+

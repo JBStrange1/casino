@@ -1,51 +1,64 @@
 #include "User.h"
+#include "Wallet.h"
+#include <exception>
+#include <fstream>
 #include <iostream>
-User::User(string userName, string password){
+#include <string>
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
 
+User::User(string userName, string password){
+    int res = login(userName, password);
 }
 User::User(){
-
+    
 }
 User::~User(){
 
 }
 int User::login(string userName, string password){
-    ifstream file("users.txt");
-    string line;
-    vector<string> lineArr;
-    bool foundUser = false;
-    int count = 0;
-    if(file.is_open()){
-        while (getline(file,line)){
-            string token; 
-            stringstream ss(line);
-            while(getline(ss, token, ';')){
-                
-                if((token == userName || foundUser) && count < 4){
-                    foundUser = true;
-                    lineArr.push_back(token);
-                    count++;
-                }
-                if(count == 3){
-                    break;
-                }
-            }
-            if(count == 0){
-                return -1;
+    ifstream f("userData.json");
+    if(!f.is_open()) return -1;
+    json data = json::parse(f);
+    json Users = data.at("Users");
+    f.close();
+    try {
+        for(int i = 0; i < Users.size(); i++){
+            if(Users.at(i).at("userName") != userName) continue;
+            else if(Users.at(i).at("password") == password){
+                this->userName = userName;
+                this->password = password;
+                this->userWallet = new Wallet(Users.at(i).at("balance"));
+                return 0; 
             }
         }
-    }else{
-        cout << "could not open file" << endl;
+    }catch(exception e){
+        cout << "Could Retrieve Users" << endl;
+        return -1;
     }
-    this->password = password;
-    this->userName = userName;
-    cout << lineArr.size();
-    if(count == 3) this->userWallet = new Wallet(stoi(lineArr.at(2)));
-    return 0;
-    file.close();
+    return -1;
 }
-void ::User::logout(){
-    //should probably do something like rerun login or something;
+
+void User::logout(){
+    ifstream f("userData.json");
+    if (!f.is_open()) return;
+    try {
+        json data = json::parse(f);
+        f.close();
+        json& users = data.at("Users");
+        for (int i = 0; i < users.size(); i++) {
+            if (users.at(i).at("userName") == this->userName) {
+                users.at(i).at("balance") = this->getWallet()->getBalance();
+                break;
+            }
+        }
+        ofstream out("userData.json");
+        if (!out.is_open()) return;
+        out << data.dump(4);
+    } catch (const exception& e) {
+        cout << "Could not retrieve/write users" << endl;
+        return;
+    }
 }
 
 Wallet* User::getWallet(){
