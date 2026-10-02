@@ -1,6 +1,6 @@
 #ifndef TOOLBAR_H
 #define TOOLBAR_H
-#include <ftxui.hpp>
+#include <ftxui/dom/elements.hpp> 
 
 using namespace ftxui;
 

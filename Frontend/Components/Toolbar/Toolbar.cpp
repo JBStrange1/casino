@@ -1,7 +1,7 @@
 #include "Toolbar.h"
 
 Toolbar::Toolbar(){
-    Element Toolbar = {
-        
-    };
+    // Element Toolbar = hbox(
+
+    // );
 }
