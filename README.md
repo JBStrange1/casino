@@ -1,67 +1,73 @@
-# C++ Slot Machine
+# Casino
 
-A configurable terminal-based slot machine written in C++. The project started as a small casino script and is growing into a reusable game-engine experiment.
+A C++17 slot machine project with a terminal user interface built using [FTXUI](https://github.com/ArthurSonzogni/FTXUI). CMake manages the build, and vcpkg supplies the third-party dependencies.
 
-## Current Features
+## Features
 
-- Configurable board dimensions
-- Randomized symbols on each spin
-- `Machine` class for game state, deposits, cashout, and spinning
-- `Symbol` objects connected into traversable scoring paths
-- Recursive scoring for horizontal, diagonal, and zigzag patterns
-- Wager and balance handling
-- C++ header/source organization
-- Makefile-based builds with generated files kept in `build/`
+- Terminal interface with a horizontal toolbar, login form, and footer
+- Username and password lookup using the local `userData.json` file
+- Wallet balance storage and saving on logout
+- Slot machine engine with randomized symbols, configurable board dimensions, deposits, cashout, and wagers
+- Recursive scoring for horizontal, diagonal, and zigzag symbol paths
+
+The interface currently creates the login view alongside the toolbar and footer. Slot and logout views are part of the source tree; the slot view is not yet wired into the active application screen.
 
 ## Project Structure
 
 ```text
-Game/
-  Machine.cpp
-  Machine.h
-  Symbol.cpp
-  Symbol.h
-Player/
-  Wallet.cpp
-  Wallet.h
-casino.cpp
-makefile
-build/          # generated build files, ignored by git
+Backend/
+  Game/                 Slot machine and symbol logic
+  Player/               User and wallet logic
+Frontend/
+  Components/           Toolbar and footer
+  Views/                Login, logout, and slot views
+  app.cpp               FTXUI application layout
+casino.cpp              Application entry point
+CMakeLists.txt          CMake build configuration
+vcpkg.json              vcpkg manifest and dependencies
+userData.json           Local user data
 ```
 
-The machine creates a board of symbols and connects each symbol to valid neighboring positions. The scoring functions recursively follow those connections while counting consecutive matching symbols.
+## Requirements
 
-## Building and Running
+- C++17 compiler
+- CMake 3.16 or newer
+- Git
+- vcpkg
 
-Build the project with:
+The vcpkg manifest installs FTXUI 7.0.3 or newer, nlohmann-json, and `vcpkg-tool-ninja`. CMake requires FTXUI 7.0.3 and nlohmann_json 3.12.0.
+
+## Build
+
+Set `VCPKG_ROOT` to your vcpkg checkout, then configure and build with the vcpkg toolchain file:
 
 ```bash
-make
+cmake -S . -B build \
+  -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+cmake --build build
 ```
 
-Run the executable with:
+Run the application from the project directory so it can find `userData.json`:
 
 ```bash
 ./build/casino
 ```
 
-Remove generated build files with:
+## User Data
 
-```bash
-make clean
-```
+The application reads user records from `userData.json`. It expects a top-level `Users` array containing objects with `userName`, `password`, and `balance` fields. Logout writes the current wallet balance back to the matching record.
 
 ## Future Plans
 
-- Add more configurable winning patterns
-- Improve wager, wallet, and payout handling
-- Add tests for board generation and scoring
-- Build a graphical interface with Node.js and Electron
-- Connect the Electron UI to the C++ machine engine, potentially through a child process or native Node.js bridge
-
-The long-term goal is to keep the C++ code responsible for the game engine while using JavaScript, HTML, and CSS for the user interface.
+- Connect the login form to user authentication and account creation
+- Wire the toolbar to switch between the slot machine and profile views
+- Connect the slot machine view to the game engine and wallet
+- Improve wager validation, payouts, and balance handling
+- Add tests for user data, board generation, and scoring
+- Improve error handling for missing or invalid user data
 
 ## About
 
-This project is primarily an experiment in C++ classes, pointers, recursion, graph traversal, dynamic board sizes, and game logic.
-No AI was used in the making of this project other than within this README.md
+This project explores C++ classes, game logic, graph traversal, recursion, terminal UI development, and dependency management with CMake and vcpkg.
+
+Codex was used only to format this README; it was not used to write the project code.
