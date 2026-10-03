@@ -8,19 +8,19 @@
 
 void callLogin(User* user);
 
-Login::Login(User* user){
-    
+Login::Login(User* user, function<void()> onLogin){
     InputOption inOpt;
     inOpt.password = true;
     ButtonOption btnOpt;
     btnOpt.Border();
     btnOpt.label = "Login";
-    btnOpt.on_click = [this, user]{
+    btnOpt.on_click = [this, user, onLogin]{
         int res = user->login(this->username, this->password);
         if(res == -1){
             this->statusStr = "Could Not login";
         }else{
             this->statusStr = "Login Sucessful";
+            onLogin();
         }
     };
 

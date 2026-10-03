@@ -22,7 +22,7 @@ private:
     Component loginBtn;
     Component newUsrBtn;
 public:
-    Login(User* thisUser);
+    Login(User* thisUser, function<void()> onLogin);
     ~Login();
     Component getComponent();
 };

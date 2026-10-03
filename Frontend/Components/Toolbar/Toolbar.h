@@ -3,6 +3,7 @@
 
 #include <ftxui/component/app.hpp>
 #include <ftxui/ftxui.hpp>
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -16,7 +17,7 @@ private:
     vector<string> entries{"Slot Machine", "Roulette","BlackJack", "Profile"};
     int selected = 0;
 public:
-    Toolbar();
+    Toolbar(function<void(string)> callback);
     ~Toolbar();
     Component getComponent();
 };

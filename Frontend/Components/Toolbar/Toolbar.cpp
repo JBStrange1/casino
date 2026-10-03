@@ -1,9 +1,13 @@
 #include "Toolbar.h"
+#include <string>
 
-Toolbar::Toolbar(){
+Toolbar::Toolbar(function<void(string)> callback){
     auto option = MenuOption::HorizontalAnimated();
     option.underline.SetAnimation(std::chrono::milliseconds(1000), animation::easing::ElasticOut);
-    option.entries_option.transform = [](EntryState state) {
+    option.on_change = [this, callback] {
+         callback(this->entries[this->selected]);
+    };
+    option.entries_option.transform = [&](EntryState state) {
         Element e = text(state.label) | hcenter | flex;
         if (state.active && state.focused) {
             e = e | bold;
