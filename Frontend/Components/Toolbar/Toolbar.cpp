@@ -15,7 +15,7 @@ Toolbar::Toolbar(){
     };
     option.underline.color_inactive = Color::Default;
     option.underline.color_active = Color::Red;
-    this->myComponent = Menu(this->entries, &this->selected ,option); 
+    this->myComponent = Menu(this->entries, &this->selected ,option) | xflex; 
 }
 
 Component Toolbar::getComponent(){

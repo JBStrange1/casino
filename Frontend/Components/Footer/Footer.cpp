@@ -7,7 +7,7 @@
 Footer::Footer(){
     this->myElement = hbox({
         text("This is a casino(Made by John Strange)") | hcenter | border | xflex
-    });
+    }) | xflex;
 }
 Element Footer::getElement(){
     return this->myElement;
