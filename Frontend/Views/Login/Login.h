@@ -12,6 +12,10 @@ using namespace ftxui;
 class Login
 {
 private:
+    string statusStr;
+    string username;
+    string password;
+    Element status; 
     Component myComponent;
     Component userNameIn;
     Component passwordIn;

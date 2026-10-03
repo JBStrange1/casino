@@ -19,6 +19,7 @@ void app::start(){
     Toolbar* toolbar = new Toolbar();
     Footer* footer = new Footer();
     Login* login = new Login(thisUser);
+    
     auto container = Container::Horizontal({
         toolbar->getComponent(),
         login->getComponent(),

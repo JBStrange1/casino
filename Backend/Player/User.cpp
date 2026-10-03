@@ -8,7 +8,7 @@
 using json = nlohmann::json;
 
 User::User(string userName, string password){
-    int res = login(userName, password);
+
 }
 User::User(){
     
@@ -17,6 +17,7 @@ User::~User(){
 
 }
 int User::login(string userName, string password){
+    std::ofstream log("debug.log", std::ios::app);
     ifstream f("userData.json");
     if(!f.is_open()) return -1;
     json data = json::parse(f);

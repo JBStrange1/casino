@@ -13,7 +13,7 @@ class Toolbar
 {
 private:
     Component myComponent; 
-    vector<string> entries{"Slot Machine", "Profile"};
+    vector<string> entries{"Slot Machine", "Roulette","BlackJack", "Profile"};
     int selected = 0;
 public:
     Toolbar();
